@@ -83,12 +83,18 @@ class MAEngine:
             raise DocumentSaveError(e)
 
     def build_ma(self, document):
+        result = False
+        try:
+            if not self.service:
+                self._connect()
 
-        if not self.service:
-            self._connect()
+            input_data = self._get_data(document)
 
-        input_data = self._get_data(document)
+            output_data = self._document_processing(document, input_data)
 
-        output_data = self._document_processing(document, input_data)
+            self._save_result(document, input_data, output_data)
 
-        self._save_result(document, input_data, output_data)
+            result = True
+
+        finally:
+            return result
