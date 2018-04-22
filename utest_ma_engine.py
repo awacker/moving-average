@@ -11,7 +11,7 @@ class MAEngineTest(unittest.TestCase):
         document = json.load(open(os.path.join(os.path.sep, os.path.dirname(__file__), 'config', 'document.json')))
         ma_engine = MAEngine(credential_path)
 
-        self.assertEqual(ma_engine.build_ma(document), True)
+        self.assertEqual(ma_engine.build(document), True)
 
 if __name__ == '__main__':
     unittest.main()

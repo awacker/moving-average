@@ -82,19 +82,15 @@ class MAEngine:
         except Exception as e:
             raise DocumentSaveError(e)
 
-    def build_ma(self, document):
-        result = False
-        try:
-            if not self.service:
-                self._connect()
+    def build(self, document):
 
-            input_data = self._get_data(document)
+        if not self.service:
+            self._connect()
 
-            output_data = self._document_processing(document, input_data)
+        input_data = self._get_data(document)
 
-            self._save_result(document, input_data, output_data)
+        output_data = self._document_processing(document, input_data)
 
-            result = True
+        self._save_result(document, input_data, output_data)
 
-        finally:
-            return result
+        return True
