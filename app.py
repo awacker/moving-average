@@ -9,8 +9,8 @@ document = json.load(open(os.path.join(os.path.sep, os.path.dirname(__file__), '
 ma_engine = MAEngine(credential_path)
 
 try:
-    if ma_engine.build(document):
-        print("MA build was successfully completed!")
+    ma_engine.build(document)
+    print("MA build was successfully completed!")
 
 except ConnectionError as e:
     print("{}: {}\nPlease check access and credentials to the Google Drive".format(e.__class__.__name__, e))

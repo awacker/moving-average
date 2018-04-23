@@ -92,5 +92,3 @@ class MAEngine:
         output_data = self._document_processing(document, input_data)
 
         self._save_result(document, input_data, output_data)
-
-        return True
