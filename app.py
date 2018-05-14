@@ -27,4 +27,4 @@ except DocumentSaveError as e:
         e.__class__.__name__, e, document['spreadsheet_id']))
 
 except Exception as e:
-    print("{}: {}\nUnexpected Error!".format(e.__class__.__name__, e))
+    print("{}: {}\n Unexpected Error!".format(e.__class__.__name__, e))
